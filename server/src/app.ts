@@ -1,4 +1,5 @@
 import express, { NextFunction, Request, Response } from "express";
+import cors from "cors";
 const app = express();
 const port = 3000;
 
@@ -29,7 +30,7 @@ const validId = (req: Request, res: Response, next: NextFunction) => {
     res.status(404).send("Location not found");
   }
 };
-
+app.use(cors());
 app.use(apiUrl + "/:id", validId);
 
 //Response Methods
