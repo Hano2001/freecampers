@@ -1,9 +1,13 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { Location } from "../types/Locations";
+import SingleLocationCard from "./SingleLocationCard";
 
 export default function GetAllLocations() {
   const [locations, setLocations] = useState<Location[]>([]);
+  const [locationCardInfo, setLocationCardInfo] = useState<Location | null>(
+    null,
+  );
   useEffect(() => {
     axios("http://localhost:3000/api/locations").then((res) => {
       setLocations(res.data);
@@ -16,7 +20,8 @@ export default function GetAllLocations() {
     ).then((res) => {
       return res.data;
     });
-    console.log(data);
+    setLocationCardInfo(data);
+    console.log(locationCardInfo);
   }
   if (locations.length !== 0) {
     return (
