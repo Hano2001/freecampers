@@ -1,7 +1,7 @@
 import React from "react";
 import { Location } from "../types/Locations";
 
-export default function SingleLocationCard(info: Location) {
+export default function SingleLocationCard({ info }: { info: Location }) {
   return (
     <>
       <h6>{info.location}</h6>

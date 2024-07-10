@@ -33,6 +33,9 @@ export default function GetAllLocations() {
             </button>
           );
         })}
+        {locationCardInfo ? (
+          <SingleLocationCard info={locationCardInfo} />
+        ) : null}
       </>
     );
   }
