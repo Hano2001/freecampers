@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { Location } from "../types/Locations";
+import { CampLocation } from "../types/Locations";
 import SingleLocationCard from "./SingleLocationCard";
 
 export default function GetAllLocations() {
-  const [locations, setLocations] = useState<Location[]>([]);
-  const [locationCardInfo, setLocationCardInfo] = useState<Location | null>(
+  const [locations, setLocations] = useState<CampLocation[]>([]);
+  const [locationCardInfo, setLocationCardInfo] = useState<CampLocation | null>(
     null,
   );
   useEffect(() => {
