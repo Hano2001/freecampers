@@ -35,8 +35,8 @@ export const AddCampsiteForm = ({ setLocations, locations }) => {
   };
 
   return (
-    <>
-      <form>
+    <section className="add-campsite--section">
+      <form className="add-campsite--section--form">
         <label htmlFor="location">Location: </label>
         <input
           type="text"
@@ -74,6 +74,6 @@ export const AddCampsiteForm = ({ setLocations, locations }) => {
         })}
       </form>
       <button onClick={(e) => addCampLocation(e)}>Add Location</button>
-    </>
+    </section>
   );
 };

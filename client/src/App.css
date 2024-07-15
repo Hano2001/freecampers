@@ -1,11 +1,17 @@
 .location-card {
-  background-color: blanchedalmond;
   width: 20rem;
   text-align: center;
   margin: 5rem;
-  border: solid 10px saddlebrown;
+  border: solid 4px;
 }
 
 .location-gallery {
   display: flex;
+}
+
+.add-campsite--section {
+  border: solid black;
+  width: 75%;
+}
+.add-campsite--section--form {
 }
