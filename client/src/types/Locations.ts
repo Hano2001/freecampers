@@ -3,5 +3,5 @@ export type CampLocation = {
   y: number;
   x: number;
   location: string;
-  utils: string[];
+  utils?: string[];
 };
