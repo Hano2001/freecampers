@@ -4,8 +4,8 @@ import { CampLocation } from "../types/Locations";
 export const AddCampsiteForm = ({ setLocations, locations }) => {
   const [formData, setFormData] = useState({
     location: "",
-    x: "",
-    y: "",
+    x: 0,
+    y: 0,
   });
   const [utilData, setUtilData] = useState<string[]>([]);
   const utils = [
@@ -34,6 +34,18 @@ export const AddCampsiteForm = ({ setLocations, locations }) => {
     // };
     // setLocations([...locations, newLocation]);
   };
+  const addCampLocation = (e) => {
+    e.preventDefault();
+    const newLocation: CampLocation = {
+      id: locations.length + 1,
+      x: formData.x,
+      y: formData.y,
+      location: formData.location,
+      utils: utilData,
+    };
+    setLocations([...locations, newLocation]);
+  };
+
   return (
     <>
       <form>
@@ -46,14 +58,14 @@ export const AddCampsiteForm = ({ setLocations, locations }) => {
         />
         <label htmlFor="x">X - Coordinate:</label>
         <input
-          type="text"
+          type="number"
           name="x"
           id="x"
           onChange={(e) => onChangeHandler(e)}
         />
         <label htmlFor="y">Y - Coordinate:</label>
         <input
-          type="text"
+          type="number"
           name="y"
           id="y"
           onChange={(e) => onChangeHandler(e)}
@@ -65,16 +77,15 @@ export const AddCampsiteForm = ({ setLocations, locations }) => {
                 type="checkbox"
                 id={u.value}
                 name="util"
-                value={u.value}
+                value={u.name}
                 onChange={(e) => onChangeHandler(e)}
               />
               <label htmlFor={u.value}>{u.name}</label>
             </div>
           );
         })}
-        <button type="submit">Add Location</button>
       </form>
-      <button onClick={() => console.log(formData, utilData)}>TEST</button>
+      <button onClick={(e) => addCampLocation(e)}>Add Location</button>
     </>
   );
 };
