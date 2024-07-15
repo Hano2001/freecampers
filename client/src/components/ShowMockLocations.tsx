@@ -13,11 +13,13 @@ export const ShowMockLocations = () => {
 
   return (
     <>
-      {locations
-        ? locations.map((l, i) => {
-            return <SingleLocationCard key={i} info={l} />;
-          })
-        : "There are no locations.."}
+      <section className="location-gallery">
+        {locations
+          ? locations.map((l, i) => {
+              return <SingleLocationCard key={i} info={l} />;
+            })
+          : "There are no locations.."}
+      </section>
       <AddCampsiteForm setLocations={setLocations} locations={locations} />
     </>
   );

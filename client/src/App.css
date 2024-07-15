@@ -1,0 +1,11 @@
+.location-card {
+  background-color: blanchedalmond;
+  width: 20rem;
+  text-align: center;
+  margin: 5rem;
+  border: solid 10px saddlebrown;
+}
+
+.location-gallery {
+  display: flex;
+}
