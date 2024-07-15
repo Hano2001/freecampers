@@ -2,12 +2,14 @@ import { ChangeEvent, FormEvent, useState } from "react";
 import { CampLocation } from "../types/Locations";
 
 export const AddCampsiteForm = ({ setLocations, locations }) => {
-  const [formData, setFormData] = useState({
+  const resetFormData = {
     location: "",
     x: 0,
     y: 0,
-  });
+  };
+  const [formData, setFormData] = useState(resetFormData);
   const [utilData, setUtilData] = useState<string[]>([]);
+
   const utils = [
     { name: "Campfire", value: "campfire" },
     { name: "Lake", value: "lake" },
@@ -32,6 +34,7 @@ export const AddCampsiteForm = ({ setLocations, locations }) => {
       utils: utilData,
     };
     setLocations([...locations, newLocation]);
+    setFormData(resetFormData);
   };
 
   return (
@@ -42,21 +45,26 @@ export const AddCampsiteForm = ({ setLocations, locations }) => {
           type="text"
           name="location"
           id="location"
-          onChange={(e) => (formData[e.target.name] = e.target.value)}
+          onChange={(e) =>
+            setFormData({ ...formData, location: e.target.value })
+          }
+          value={formData.location}
         />
         <label htmlFor="x">X - Coordinate:</label>
         <input
           type="number"
           name="x"
           id="x"
-          onChange={(e) => (formData[e.target.name] = e.target.value)}
+          onChange={(e) => setFormData({ ...formData, x: e.target.value })}
+          value={formData.x}
         />
         <label htmlFor="y">Y - Coordinate:</label>
         <input
           type="number"
           name="y"
           id="y"
-          onChange={(e) => (formData[e.target.name] = e.target.value)}
+          onChange={(e) => setFormData({ ...formData, y: e.target.value })}
+          value={formData.y}
         />
         {utils.map((u, i) => {
           return (
