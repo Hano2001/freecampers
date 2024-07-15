@@ -6,6 +6,6 @@ export const mockCamps: CampLocation[] = [
     y: 150,
     x: 150,
     location: "Brandbergen",
-    utils: ["Fireplace", "Lake", "Public Transport"],
+    utils: ["Campfire", "Lake", "Public Transport"],
   },
 ];

@@ -5,11 +5,18 @@ export default function SingleLocationCard({ info }: { info: CampLocation }) {
   return (
     <article className="location-card">
       <h3>{info.location}</h3>
-      <p>{info.x}</p>
-      <p>{info.y}</p>
-      {info.utils?.map((u) => {
-        return <p>-{u}</p>;
-      })}
+      <p>Longitude: {info.x}</p>
+      <p>Latitude: {info.y}</p>
+      <h4>Features</h4>
+      <ul>
+        {info.utils?.map((u) => {
+          return (
+            <li>
+              <p>-{u}</p>
+            </li>
+          );
+        })}
+      </ul>
     </article>
   );
 }
